@@ -1,0 +1,15 @@
+version: "3.7"
+services:
+  db:
+    image: sqlite
+    container_name: db_app
+    command: -p 5435
+
+  app:
+    build:
+      context: .
+    container_name: app_app
+    ports:
+      - 8999:80
+    depends_on:
+      - db

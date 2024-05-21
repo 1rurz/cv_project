@@ -1,0 +1,76 @@
+meta {
+  name: create cv
+  type: http
+  seq: 3
+}
+
+post {
+  url: http://0.0.0.0:8000/api/v1/cvs
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "title": "string",
+    "user_id": 0,
+    "photo": {
+      "url": "string"
+    },
+    "personal_info": {
+      "first_name": "string",
+      "last_name": "string",
+      "profession": "string",
+      "desired_salary": "string",
+      "city": "string",
+      "age": "string"
+    },
+    "contact_info": {
+      "email": "string",
+      "phone": "string",
+      "social_links": []
+    },
+    "skills": [
+      {
+        "name": "string"
+      }
+    ],
+    "tools": [
+      {
+        "name": "string"
+      }
+    ],
+    "education": [
+      {
+        "institution": "string",
+        "faculty": "string",
+        "specialization": "string",
+        "graduation_year": 0,
+        "description": ""
+      }
+    ],
+    "courses": [
+      {
+        "name": "string",
+        "institution": "string",
+        "start_year": 0,
+        "end_year": 0,
+        "description": ""
+      }
+    ],
+    "work_experience": [
+      {
+        "company_name": "string",
+        "position": "string",
+        "start_date": "string",
+        "end_date": "string",
+        "description": ""
+      }
+    ],
+    "languages": [
+      {
+        "name": "string"
+      }
+    ]
+  }
+}
