@@ -1,15 +1,23 @@
 version: "3.7"
 services:
   db:
-    image: sqlite
-    container_name: db_app
-    command: -p 5435
-
+    image: postgres:13
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ${DB_NAME}
+    ports:
+      - "5432:5432"
   app:
     build:
       context: .
+      dockerfile: Dockerfile
     container_name: app_app
     ports:
-      - 8999:80
+      - 9000:80
     depends_on:
       - db
+    env_file:
+      - .env
